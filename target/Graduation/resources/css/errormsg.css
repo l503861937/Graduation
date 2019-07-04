@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+
+     #bg1{
+     	
+     	background-color: #FFFFFF;
+     	width: 1200px;
+     	margin: 0 auto;
+     }
+
+     #error{
+     	background-color: #FFFFFF;
+     	width: 1100px;
+     	height: 500px;
+     	margin: 0px 50px 0px 50px;
+     	position: relative;
+
+     }
+     
+     #tt1{
+     	height: 40px;
+     	width: 200px;
+     	float: left;
+     }
+     
+     /* #title h3{*/
+     /*	margin: 10px 10px;*/
+     /*}*/
+     
+     #searchBar{
+     	height: 40px;
+     	width: 370px;
+     	float: right;
+     	position: relative;
+     	top: 10px;
+     	right: 50px;
+     }
+     
+      #search{
+      	border: 2px solid ;
+     	border-radius:20px ;
+     	border-color:#DEDEDE;	
+     	width: 300px;
+     	height: 35px;
+     	font-size: 20px;
+        
+     }
+     
+     #table{
+    
+    width:1100px;
+	border-collapse: collapse;
+	font-size:15px;
+	color:#333333;
+	border-width: 1px;
+	margin: 0 auto;
+	clear:both;
+	position:relative;
+	top:30px;
+	
+  
+     }
+     #table th {
+	
+	padding: 8px;
+	
+	
+	border-bottom: 2px solid #f2f2f2;
+	color: #1E90FF;
+
+	}
+	
+	#table td {
+	border-width: 1px;
+	padding: 8px;
+	text-align: center;
+	border-bottom: 2px solid #f2f2f2;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow: ellipsis;
+	
+
+	}
+	
+	
+	#checkMsg{
+		color: orange;
+		text-decoration: none;
+	}
+	
+	#searchBar i{
+		font-size: 35px;
+		color:#666666;
+		position: relative;
+		top: 10px;
+		
+	}
+	
+	#searchBar a{
+		text-decoration: none;
+		
+	}
+	
+	#table td a{
+		text-decoration: none;
+	}
+	#errordelete{
+	color: red;
+	text-decoration: none;
+}
+	.layui-input-block{
+		position: relative;
+		left: 350px;
+
+	}
+	
+

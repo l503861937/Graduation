@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+         
+      
+         <!-- 配置springmvc -->
+         <!-- 1.开启springmvc注解模式 -->
+         <mvc:annotation-driven></mvc:annotation-driven>
+         <!-- 2.静态资源默认servlet配置 
+         (1)加入静态资源的处理：js,gif,png
+         (2)允许用"/"做整体映射
+         -->
+                <mvc:default-servlet-handler/>
+         <mvc:resources mapping="/resources/**" location="/resources/"/>
+
+         
+         <!-- 3.定义视图解析器 -->
+         <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+         <property name="prefix" value="/WEB-INF/html/"></property>
+         <property name="suffix" value=".html"></property>
+         </bean>
+         
+
+         
+         <!-- 4.扫描web相关的bean -->
+         <context:component-scan base-package="com.lxd.Graduation.web"></context:component-scan>
+
+    <!-- 后台访问拦截器 -->
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/WEB-INF/html/graduation/logon.html"/>
+            <mvc:exclude-mapping path="/WEB-INF/html/graduation/register.html"/>
+            <mvc:exclude-mapping path="/test/login"/>
+            <mvc:exclude-mapping path="/test/logonCheck"/>
+            <mvc:exclude-mapping path="/test/register"/>
+            <mvc:exclude-mapping path="/test/GoRegister"/>
+            <mvc:exclude-mapping path="/resources/**"/>
+            <bean class="com.lxd.Graduation.Interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+</beans>

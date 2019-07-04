@@ -1,0 +1,38 @@
+@charset "UTF-8";
+#examibg{
+    background:#ffffff;
+    width: 100%;
+}
+
+    #examinat{
+        width: 1100px;
+        margin: auto;
+    }
+
+    #examiTable{
+        width: 300px;
+        margin: auto;
+    }
+
+
+#examiborder{
+
+    border-bottom: 2px solid #f2f2f2;
+}
+#timer{
+    height: 40px;
+    font-size: 18px;
+    width: 250px;
+    background-color:#FFFFFF;
+    z-index:10;
+    position:fixed;
+    left: 1220px;
+    top: 100px;
+
+
+}
+
+#examSubmit{
+    position: relative;
+    left: 700px;
+}

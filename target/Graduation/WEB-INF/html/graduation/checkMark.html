@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../resources/css/checkMark.css"/>
+	<link rel="stylesheet" type="text/css" href="../resources/css/sccl.css"/>
+	<link rel="stylesheet" type="text/css" href="../resources/css/layui.css"/>
+
+</head>
+<body>
+
+
+<div id="checkMsgBg">
+	<div id="checkError">
+		<div id="checkTitle">
+			<h3>成绩</h3>
+		</div>
+
+		<div id="checkSearchBar">
+			<input type="text" name="search" id="checkSearch"  value="" placeholder="请输入关键字" />
+			<a href="javascript:;" onclick="checkSearch()" ><i class="icon-search"></i></a>
+		</div>
+
+
+		<div id="checkTab">
+			<table id="checkTable" >
+				<tr>
+
+
+					<th width="20%">科目名称</th>
+					<th width="12%">成绩</th>
+					<th width="20%">考试时间</th>
+					<th width="12%">考生姓名</th>
+					<th width="20%">考生学号</th>
+					<th width="16%">操作</th>
+
+				</tr>
+
+			</table>
+
+		</div>
+
+
+	</div>
+	<div class="layui-input-block" style="width: 350px">
+		<button class="layui-btn layui-btn-normal" onclick="checkPageUp()">上一页</button>
+		<select class="layui-select" id="checkOption">
+
+		</select>
+		<button  class="layui-btn layui-btn-normal" onclick="checkPageDown()">下一页</button>
+
+	</div>
+</div>
+
+<script type='text/javascript' src='../resources/js/jquery.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='../resources/js/layer.js' charset='utf-8'></script>
+<script type='text/javascript' src='../resources/js/checkMark.js' charset='utf-8'></script>
+</body>
+</html>

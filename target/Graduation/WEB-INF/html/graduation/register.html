@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/layui.css">
+</head>
+<body>
+<div class="layui-form-item" style="width: 300px"><h1 style="position: relative;left:240px">账号注册</h1></div>
+
+<div class="layui-form-item layui-form-pane" >
+    <label class="layui-form-label" >姓名</label>
+    <div class="layui-input-block">
+        <input type="text" id="realName" style="width: 400px;" required  lay-verify="required" placeholder="请输姓名" autocomplete="off" class="layui-input">
+    </div>
+</div>
+<div class="layui-form-item layui-form-pane">
+    <label class="layui-form-label">用户名</label>
+    <div class="layui-input-inline">
+        <input type="text" id="userName" style="width: 400px;" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+    </div>
+
+</div>
+<div class="layui-form-item layui-form-pane">
+    <label class="layui-form-label"><span style="color: red">*</span>密码</label>
+    <div class="layui-input-inline">
+        <input type="password" id="passWord" style="width: 400px;" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+    </div>
+
+</div>
+<div class="layui-form-item layui-form-pane">
+    <label class="layui-form-label">身份证</label>
+    <div class="layui-input-inline">
+        <input type="text" id="idNumber" style="width: 400px;" required lay-verify="required" placeholder="请输身份证" autocomplete="off" class="layui-input">
+    </div>
+
+</div>
+<div class="layui-form-item layui-form-pane">
+    <label class="layui-form-label">学号（工号）</label>
+    <div class="layui-input-inline">
+        <input type="text" id="number" style="width: 400px;" required lay-verify="required" placeholder="请输入学号（工号）" autocomplete="off" class="layui-input">
+    </div>
+
+</div>
+
+<div class="layui-form-item">
+    <div class="layui-input-block">
+        <input name="sex" type="radio" value="student">学生
+        <input name="sex" type="radio" value="teacher">教师
+
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <div class="layui-input-block">
+        <button class="layui-btn layui-btn-normal" onclick="sub()">注册</button>
+        <button class="layui-btn layui-btn-primary" onclick="clearInput()">重置</button>
+    </div>
+</div>
+
+
+
+
+
+</body>
+<script type="text/javascript" src="../resources/js/jquery.min.js " charset="utf-8"></script>
+<script type='text/javascript' src='../resources/js/layer.js' charset='utf-8'></script>
+<script type='text/javascript' src='../resources/js/register.js' charset='utf-8'></script>
+
+</html>

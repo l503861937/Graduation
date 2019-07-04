@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/examinationMag.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/sccl.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/layui.css"/>
+
+</head>
+<body>
+
+
+<div id="mag">
+    <div id="examMag">
+        <div id="titleMag">
+            <h3>试卷</h3>
+        </div>
+
+        <div id="magSearchBar">
+            <input type="text" name="search" id="itemsearch"  value="" placeholder="请输入试卷代码进行搜索" />
+            <a href="javascript:;" onclick="magCheck()"><i class="icon-search"></i></a>
+        </div>
+
+        <div id="magTab">
+            <table id="magTable" style="table-layout: fixed;">
+                <tr>
+                    <th width="10%" ><a href="javascript:;" onclick="itemAllChenck()" style="color: rebeccapurple">全选</a></th>
+                    <th width="40%">题目名称</th>
+                    <th width="20%">科目名称</th>
+                    <th width="10%">试卷代码</th>
+                    <th width="20%">操作</th>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+
+    </div>
+    <div class="layui-input-block" style="width: 350px">
+        <button class="layui-btn layui-btn-normal" onclick="magPageUp()">上一页</button>
+        <select class="layui-select" id="magOption">
+
+        </select>
+        <button  class="layui-btn layui-btn-normal" onclick="magPageDown()">下一页</button>
+        <button  class="layui-btn layui-btn-normal" onclick="magAllDel()">批量删除</button>
+    </div>
+</div>
+
+
+<script type='text/javascript' src='../resources/js/jquery.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='../resources/js/layer.js' charset='utf-8'></script>
+<script type='text/javascript' src='../resources/js/examinationMag.js' charset='utf-8'></script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 接口名 -->
+<mapper namespace="com.lxd.Graduation.dao.registerAutDao">
+    <resultMap type="com.lxd.Graduation.entity.authority" id="AutMap">
+        <id property="authorityId"  column="authority_id"/><!-- property对应的是实体类，column 对应的是数据库的字段 -->
+        <result  property="authorityNumber" column="authority_number"/>
+        <result  property="authorityCode" column="authority_code"/>
+        <result  property="authorityName" column="authority_name"/>
+        <result  property="authorityZxks" column="authority_zxks"/>
+        <result  property="authorityZzks" column="authority_zzks"/>
+        <result  property="authorityCkcj" column="authority_ckcj"/>
+        <result  property="authorityCtgl" column="authority_ctgl"/>
+        <result  property="authorityStgl" column="authority_stgl"/>
+        <result  property="authorityQxgl" column="authority_qxkz"/>
+        <result  property="authoritySttj" column="authority_sttj"/>
+        <result  property="authoritySjgl" column="authority_sjgl"/>
+
+    </resultMap>
+<insert id="insterAut" parameterType="com.lxd.Graduation.entity.authority">
+
+           INSERT INTO authority
+(authority_number,authority_name,authority_zxks,authority_zzks,authority_ckcj,
+authority_ctgl,authority_stgl,authority_qxkz,authority_sttj,authority_sjgl)
+VALUES (#{authorityNumber},#{authorityName},#{authorityZxks},#{authorityZzks},#{authorityCkcj},
+#{authorityCtgl},#{authorityStgl},#{authorityQxgl},#{authoritySttj},#{authoritySjgl}
+)
+</insert>
+</mapper>

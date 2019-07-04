@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/layui.css"/>
+</head>
+<body>
+<div id="addTestBg" style="width: 100%">
+    <div id="add" style="width: 700px;margin: auto">
+<div class="layui-form-item" style="width: 300px"><h1 style="position: relative;left:240px">添加试卷</h1></div>
+
+<div class="layui-form-item layui-form-pane" >
+    <label class="layui-form-label" >题目</label>
+    <div class="layui-input-block">
+        <input type="text" id="addTextTitle" style="width: 600px;" required  lay-verify="required" placeholder="例：ArrayList类的底层数据结构是(  )" autocomplete="off" class="layui-input">
+    </div>
+</div>
+<div class="layui-form-item layui-form-pane">
+    <label class="layui-form-label">选项A</label>
+    <div class="layui-input-inline">
+        <input type="text" id="addOpA" style="width: 600px;" required lay-verify="required" placeholder="例：A、数组结构" autocomplete="off" class="layui-input">
+    </div>
+
+</div>
+<div class="layui-form-item layui-form-pane">
+    <label class="layui-form-label">选项B</label>
+    <div class="layui-input-inline">
+        <input type="text" id="addOpB" style="width: 600px;" required lay-verify="required" placeholder="例：B、链表结构" autocomplete="off" class="layui-input">
+    </div>
+
+</div>
+<div class="layui-form-item layui-form-pane">
+    <label class="layui-form-label">选项C</label>
+    <div class="layui-input-inline">
+        <input type="text" id="addOpC" style="width: 600px;" required lay-verify="required" placeholder="例：C、哈希表结构" autocomplete="off" class="layui-input">
+    </div>
+
+</div>
+<div class="layui-form-item layui-form-pane">
+    <label class="layui-form-label">选项D</label>
+    <div class="layui-input-inline">
+        <input type="text" id="addOpD" style="width: 600px;" required lay-verify="required" placeholder="例：D、红黑树结构" autocomplete="off" class="layui-input">
+    </div>
+
+</div>
+    <div class="layui-form-item layui-form-pane">
+        <label class="layui-form-label">正确答案</label>
+        <div class="layui-input-inline">
+            <input type="text" id="addAnswer" style="width: 600px;" required lay-verify="required" placeholder="例：A" autocomplete="off" class="layui-input">
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+</div>
+<div class="layui-form-item">
+    <div class="layui-input-inline" style="width:500px; position: relative;left: 500px">
+        <button class="layui-btn layui-btn-normal" onclick="addSub()">添加到试卷库</button>
+        <button class="layui-btn layui-btn-normal" onclick="addtoTest()">添加到测试题库</button>
+        <button type="reset" class="layui-btn layui-btn-normal" onclick="addTest()">继续添加</button>
+    </div>
+</div>
+</body>
+<script type='text/javascript' src='../resources/js/jquery.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='../resources/js/addTestQuestions.js' charset='utf-8'></script>
+<script type='text/javascript' src='../resources/js/layer.js' charset='utf-8'></script>
+</html>

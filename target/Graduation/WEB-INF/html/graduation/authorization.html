@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../resources/jsTree/dist/themes/default/style.min.css" rel="stylesheet">
+<<link rel="stylesheet" type="text/css" href="../resources/css/layui.css"/>
+</head>
+<body>
+<div class="layui-main" style="width: 600px;height: 400px">
+    <div class="layui-form-item layui-form-pane" ><br/>
+        <label class="layui-form-label" ><span style="color: red">*</span>用户名</label>
+        <div class="layui-input-block">
+            <input type="text" id="authUserName" style="width: 400px;" required  lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
+
+        </div>
+
+        <div id="using_json"></div>
+        <br/>  <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" onclick="checkSub()">查询</button>
+                <button class="layui-btn layui-btn-normal" onclick="authSub()">确定</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/jsTree/dist/jstree.min.js"></script>
+<script type='text/javascript' src='../resources/js/layer.js' charset='utf-8'></script>
+<script src="../resources/js/authorization.js"></script>
+</html>

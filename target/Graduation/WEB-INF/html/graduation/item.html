@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>试题添加</title>
+		<style type="text/css">
+			#item{
+			    background:rgba(0,0,0,0.1);
+			    border-radius: 15px;
+				height: 620px;
+				width: 480px;
+				margin: 0 auto;
+				position: relative;
+				top: 20px;
+			}
+		
+			
+		
+			#item  label{
+				position: relative;
+				top: 30px;
+				left:30px;
+			
+			}
+			
+			.inp{
+			position: relative;
+				top: 30px;
+				left:45px;
+				width:300px;
+				height:30px;
+			
+			}
+			
+				#sub{
+				height: 50px;
+				width: 90px;
+				background: #2f435e;
+				color: #f2f2f2;
+				border: none;
+				float: left;
+				font-size: 20px;
+				position: relative;
+				left: 100px;
+				top:30px;
+			}
+			
+			#clo{
+				height: 50px;
+				width: 90px;
+				background: #2f435e;
+				color: #f2f2f2;
+				border: none;
+				float: left;
+				font-size: 20px;
+				position: relative;
+				left: 200px;
+				top:30px;
+			}
+				#border{
+				border-bottom: 2px solid #f2f2f2;
+				}
+				
+				h1{
+				text-align:center;
+				}
+			
+		</style>
+	</head>
+	<body>
+		<div id="item">
+			 <header>
+				<h1 style="color: #FFFFFF;">添加试题</h1>
+			</header>
+			<div id="border"></div>
+			<label>科&nbsp;&nbsp;&nbsp;目:</label><input class="inp" type="text" name="" id="type" placeholder="例:历史" /><br /><br />
+			<label>题&nbsp;&nbsp;&nbsp;目:</label><input class="inp"  type="text" id="tit"  placeholder="例:秦朝建立时间？"/><br /><br />
+			<label>选项A:</label><input class="inp"  type="text" id="optionA" placeholder="例:（A）公元前221年"/><br /><br />
+			<label>选项B:</label><input class="inp"  type="text" id="optionB" placeholder="例:（B）公元前222年"/><br /><br />
+			<label>选项C:</label><input class="inp"  type="text" id="optionC" placeholder="例:（C）公元前223年"/><br /><br />
+			<label>选项D:</label><input class="inp"  type="text" id="optionD" placeholder="例:（D）公元前224年"/><br /><br />
+			<label>答&nbsp;&nbsp;&nbsp;案:</label><input class="inp"  type="text" id="answer" placeholder="例:A"/><br /><br />
+			<label>课&nbsp;&nbsp;&nbsp;号:</label><input class="inp"  type="text"  id="number"  placeholder="例:22018" /><br /><br />
+			<input type="button"  id="sub" value="提交" onclick="sub()"/>
+			<input type="button" id="clo" value="关闭" onclick="clo()" />
+			
+		</div>
+		
+	</body>
+</html>

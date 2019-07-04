@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 接口名 -->
+<mapper namespace="com.lxd.Graduation.dao.logonDao">
+<resultMap type="com.lxd.Graduation.entity.User" id="UserMap">
+  <id property="userId"  column="userid"/> <!-- property对应的是实体类，column 对应的是数据库的字段 -->
+  <result property="userName" column="username"/>
+  <result property="realName" column="realname"/>
+  <result property="passWord" column="password"/>
+  <result property="grade" column="grade"/>
+  <result property="idNumber" column="idnumber"/>
+  <result property="number"  column="number"/>
+  <association property="authority" column="authority_id" javaType="com.lxd.Graduation.entity.authority">
+<id  property="authorityId" column="authority_id"/>
+<result  property="authorityNumber" column="authority_number"/>
+<result  property="authorityCode" column="authority_code"/>
+<result  property="authorityName" column="authority_name"/>
+      <result  property="authorityZxks" column="authority_zxks"/>
+      <result  property="authorityZzks" column="authority_zzks"/>
+      <result  property="authorityCkcj" column="authority_ckcj"/>
+      <result  property="authorityCtgl" column="authority_ctgl"/>
+      <result  property="authorityStgl" column="authority_stgl"/>
+      <result  property="authorityQxgl" column="authority_qxkz"/>
+      <result  property="authoritySttj" column="authority_sttj"/>
+      <result  property="authoritySjgl" column="authority_sjgl"/>
+
+
+</association>
+  </resultMap>
+  <select id="checkUsername" resultMap="UserMap" parameterType="com.lxd.Graduation.entity.User">
+  SELECT 
+     u.userid,
+     u.username,
+     u.realname,
+     u.password,
+     u.grade,
+     u.idnumber,
+     u.number,
+     a.authority_zxks,
+     a.authority_zzks,
+     a.authority_ckcj,
+     a.authority_ctgl,
+     a.authority_stgl,
+     a.authority_qxkz,
+     a.authority_sttj,
+     a.authority_number,
+     a.authority_name,
+     a.authority_sjgl
+  FROM
+     user u
+  LEFT JOIN 
+     authority a
+  ON
+     u.username=a.authority_number   
+  WHERE 
+          username=#{userName}
+          and password=#{passWord}
+ 
+  </select>
+
+    <insert id="inster" parameterType="com.lxd.Graduation.entity.User">
+        INSERT INTO user
+(username,realname,password,idnumber,number)
+VALUES (#{userName},#{realName},#{passWord},#{idNumber},#{number})
+
+    </insert>
+
+    <select id="dupCheck" parameterType="com.lxd.Graduation.entity.User" resultType="java.lang.Integer" >
+        SELECT count(*)FROM user
+        WHERE username=#{userName}
+        OR number=#{number}
+        OR idnumber=#{idNumber}
+    </select>
+ </mapper>

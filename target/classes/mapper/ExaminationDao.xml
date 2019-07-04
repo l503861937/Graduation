@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 接口名 -->
+<mapper namespace="com.lxd.Graduation.dao.ExaminationDao">
+    <resultMap type="com.lxd.Graduation.entity.ExaminationTable" id="ExamMap">
+        <id property="examinationId" column="examination_id"/> <!-- property对应的是实体类，column 对应的是数据库的字段 -->
+        <result property="examinationTitle"  column="examination_title"/>
+        <result property="examinationA" column="examination_A"/>
+        <result property="examinationB" column="examination_B"/>
+        <result property="examinationC" column="examination_C"/>
+        <result property="examinationD" column="examination_D"/>
+        <result property="examinationAnswer" column="examination_answer"/>
+        <result property="examinationCode"  column="examination_code"/>
+        <result property="examinationType"  column="examination_type"/>
+
+
+    </resultMap>
+    <select id="SelectExaTableInfo" parameterType="com.lxd.Graduation.entity.ExaminationTable" resultMap="ExamMap">
+        SELECT * FROM examination_table
+        WHERE examination_code=#{examinationCode}
+        ORDER BY
+	    rand( )
+	    LIMIT 20
+
+    </select>
+
+    <select id="selectExatabAnswer" resultMap="ExamMap">
+        SELECT examinationAnswer FROM examination_table
+        WHERE examinationId=#{id}
+
+    </select>
+    <select id="selectCountType" resultType="java.lang.Integer">
+
+        select count(*)from examination_table
+       <where>
+        <if test="code!=null">
+            examination_code like "%"#{code}"%"
+            or examination_title like "%"#{code}"%"
+            or examination_type like "%"#{code}"%"
+        </if>
+       </where>
+    </select>
+
+    <select id="selectPage" resultMap="ExamMap">
+        select *from examination_table
+        <where>
+            <if test="code!=null">
+                examination_code like "%"#{code}"%"
+                or examination_title like "%"#{code}"%"
+                or examination_type like "%"#{code}"%"
+            </if>
+        </where>
+        ORDER BY examination_type
+        limit #{startIndex},10
+    </select>
+
+    <insert id="insert"  parameterType="com.lxd.Graduation.entity.ExaminationTable">
+        INSERT INTO examination_table
+(examination_title,examination_A,examination_B,examination_C,examination_D,examination_answer,examination_code,examination_type)
+VALUES (#{examinationTitle},#{examinationA},#{examinationB},
+#{examinationC},#{examinationD},#{examinationAnswer},
+#{examinationCode},#{examinationType})
+
+    </insert>
+
+    <delete id="delete" >
+        DELETE FROM examination_table WHERE examination_id =#{id}
+    </delete>
+
+    <update id="update" parameterType="com.lxd.Graduation.entity.ExaminationTable">
+        UPDATE examination_table
+        <set>
+            <if test="examinationType!= null">examination_type=#{examinationType},</if>
+            <if test="examinationTitle!= null">examination_title=#{examinationTitle},</if>
+            <if test="examinationA!= null">examination_A=#{examinationA},</if>
+            <if test="examinationB!= null">examination_B=#{examinationB},</if>
+            <if test="examinationC!= null">examination_C=#{examinationC},</if>
+            <if test="examinationD!= null">examination_D=#{examinationD},</if>
+            <if test="examinationAnswer!= null">examination_answer=#{examinationAnswer}</if>
+
+        </set>
+        WHERE examination_id=#{examinationId}
+    </update>
+
+
+</mapper>

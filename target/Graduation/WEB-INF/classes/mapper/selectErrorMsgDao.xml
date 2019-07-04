@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxd.Graduation.dao.selectErrorMsgDao">
+<resultMap type="com.lxd.Graduation.entity.wrongTable" id="WrongMap">
+ <id property="wrongId"  column="wrong_id"/> <!-- property对应的是实体类，column 对应的是数据库的字段 -->
+  <result property="wrongTitle" column="wrong_title"/>
+  <result property="wrongSubject" column="wrong_subject"/>
+  <result property="wrongSubjectTecher" column="wrong_subject_techer"/>
+  <result property="wrongSubjectNumber" column="wrong_subject_number"/>
+  <result property="wrongSubjectStudent" column="wrong_subject_student"/>
+  <result property="wrongDate"  column="wrong_date"/>
+  <result property="wrongOptionA" column="wrong_option_A"/>
+ <result property="wrongOptionB" column="wrong_option_B"/>
+ <result property="wrongOptionC" column="wrong_option_C"/>
+ <result property="wrongOptionD" column="wrong_option_D"/>
+ <result property="wrongAnswer" column="wrong_answer"/>
+ <result property="wrongOption" column="wrong_option"/>
+
+</resultMap>
+
+ <select id="selecterrormsg" resultMap="WrongMap" parameterType="com.lxd.Graduation.entity.wrongTable">
+  select *from wrong_table
+  WHERE wrong_subject_student=#{userName}
+  <if test="type!=null">
+     AND  wrong_subject like "%"#{type}"%" or wrong_title like "%"#{type}"%"
+  </if>
+  order by wrong_subject
+  limit #{startIndex},#{pageSize}
+  </select>
+
+ <insert id="inserInfo"  parameterType="com.lxd.Graduation.entity.wrongTable">
+  INSERT INTO wrong_table
+          (wrong_title,wrong_subject,
+          wrong_subject_student,wrong_date,wrong_option_A,
+          wrong_option_B,wrong_option_C,wrong_option_D,
+          wrong_answer,wrong_option)
+VALUES (#{wrongTitle}, #{wrongSubject},
+        #{wrongSubjectStudent},#{wrongDate},#{wrongOptionA},
+        #{wrongOptionB},#{wrongOptionC},#{wrongOptionD},
+        #{wrongAnswer},#{wrongOption})
+
+ </insert>
+
+    <select id="selectCount" resultType="java.lang.Integer">
+        select count(*)from wrong_table
+        WHERE wrong_subject_student=#{userName}
+        <if test="type!=null">
+            AND  wrong_subject like "%"#{type}"%" or wrong_title like "%"#{type}"%"
+        </if>
+
+
+    </select>
+
+    <delete id="delInfo">
+  DELETE FROM wrong_table WHERE wrong_id =#{id}
+  </delete>
+
+</mapper>
