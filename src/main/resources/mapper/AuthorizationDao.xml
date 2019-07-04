@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxd.Graduation.dao.AuthorizationDao">
+    <resultMap type="com.lxd.Graduation.entity.authority" id="authMap">
+
+            <id  property="authorityId" column="authority_id"/>
+            <result  property="authorityNumber" column="authority_number"/>
+            <result  property="authorityCode" column="authority_code"/>
+            <result  property="authorityName" column="authority_name"/>
+            <result  property="authorityZxks" column="authority_zxks"/>
+            <result  property="authorityZzks" column="authority_zzks"/>
+            <result  property="authorityCkcj" column="authority_ckcj"/>
+            <result  property="authorityCtgl" column="authority_ctgl"/>
+            <result  property="authorityStgl" column="authority_stgl"/>
+            <result  property="authorityQxgl" column="authority_qxkz"/>
+            <result  property="authoritySttj" column="authority_sttj"/>
+            <result  property="authoritySjgl" column="authority_sjgl"/>
+
+    </resultMap>
+    <!-->查询用户权限<-->
+    <select id="SelectAuthInfo" parameterType="com.lxd.Graduation.entity.authority" resultMap="authMap">
+        SELECT * FROM authority
+        WHERE
+        authority_number=#{authorityNumber}
+    </select>
+    <!-->修改用户权限<-->
+    <update id="updateInfo" parameterType="com.lxd.Graduation.entity.authority">
+
+        UPDATE authority
+        <set>
+            <if test="authorityZxks!= null">authority_zxks=#{authorityZxks},</if>
+            <if test="authorityZzks!= null">authority_zzks=#{authorityZzks},</if>
+            <if test="authorityCkcj!= null">authority_ckcj=#{authorityCkcj},</if>
+            <if test="authorityCtgl!= null">authority_ctgl=#{authorityCtgl},</if>
+            <if test="authorityStgl!= null">authority_stgl=#{authorityStgl},</if>
+            <if test="authorityQxgl!= null">authority_qxkz=#{authorityQxgl},</if>
+            <if test="authoritySttj!= null">authority_sttj=#{authoritySttj},</if>
+            <if test="authoritySjgl!= null">authority_sjgl=#{authoritySjgl} </if>
+
+        </set>
+        WHERE authority_number=#{authorityNumber}
+    </update>
+</mapper>

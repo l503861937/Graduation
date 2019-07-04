@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../resources/css/item2.css"/>
+		<link rel="stylesheet" type="text/css" href="../resources/css/sccl.css"/>
+		<link rel="stylesheet" type="text/css" href="../resources/css/layui.css"/>
+
+	</head>
+	<body>
+
+
+		<div id="item">
+			<div id="itemerror">
+				<div id="itemtitle">
+				<h3>题目</h3>
+				</div>
+
+				<div id="itemsearchBar" >
+					<input type="text" name="search" id="itemsearch"  value="" placeholder="请输入关键字" />
+					<a href="javascript:;" onclick="ietemCheck()"><i class="icon-search"></i></a>
+				</div>
+
+				<div id="itmetab">
+					<table id="itemtable" style="table-layout: fixed;">
+			<tr>
+				<th width="10%" ><a href="javascript:;" onclick="itemAllChenck()" style="color: rebeccapurple">全选</a></th>
+				<th width="60%">题目名称</th>
+				<th width="10%">科目名称</th>
+				<th width="20%">操作</th>
+
+			</tr>
+
+			        </table>
+
+				</div>
+
+
+			</div>
+			<div class="layui-input-block" style="width: 350px">
+				<button class="layui-btn layui-btn-normal" onclick="pageUp()">上一页</button>
+				<select class="layui-select" id="itemOption">
+
+				</select>
+				<button  class="layui-btn layui-btn-normal"  onclick="pageDown()">下一页</button>
+				<button  class="layui-btn layui-btn-normal" onclick="allDel()">批量删除</button>
+			</div>
+		</div>
+
+
+		<script type='text/javascript' src='../resources/js/jquery.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../resources/js/layer.js' charset='utf-8'></script>
+		<script type='text/javascript' src='../resources/js/item2.js' charset='utf-8'></script>
+	</body>
+</html>

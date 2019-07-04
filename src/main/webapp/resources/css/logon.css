@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+			#bg{
+				width: 100%;
+				height: 100%;
+		       
+          
+			}
+			
+			#bg::before {
+			position: absolute;
+				width: 100%;
+				height: 100%;
+		       
+		    background: url(http://localhost:8080/Graduation/resources/img/BSL1546847599443.png);
+            background-size: cover;
+             top: 0;
+             right: 0;
+             bottom: 0;
+             left: 0;
+             content: '';
+             filter: blur(1px);
+  
+
+}
+			header h1{
+			text-align:center;
+			}
+
+
+			
+			#border{
+				border-bottom: 2px solid #f2f2f2;
+				}
+			
+
+
+				
+
+
+			
+	
+			
+			#logon{
+			    display:block;
+				width: 430px;
+				height: 330px;
+				background: white;
+				position: relative;
+				left: 600px;
+				top: 280px;
+				background:rgba(0,0,0,0.3);
+				border-radius: 15px;
+				
+			}
+			#zhanghao{
+				height: 55px;
+				width: 200px;
+				font-size: 20px;
+				
+			}
+			
+			#mima{
+				height: 55px;
+				width: 200px;
+				font-size: 20px;
+			}
+
+				
+			#img1{
+				float: left;
+			}
+		    #img2{
+				float: left;
+			}
+
+			#username{
+			height: 55px;
+			width: 320px;
+
+				float: left;
+				position: relative;
+				left: 70px;
+				top:20px;
+}
+			
+			#password{
+				height: 55px;
+				width: 320px;
+				
+				float: left;
+				position: relative;
+				left: 70px;
+				top:40px;
+			}
+			#div3{
+				height: 55px;
+				width: 235px;
+				
+				float: left;
+				position: relative;
+				left: 90px;
+				top:60px;
+				
+			}
+			#button{
+				height: 50px;
+				width: 80px;
+				background: #2f435e;
+				color: #f2f2f2;
+				margin-top: 2px;
+				border: none;
+				float: left;
+			   
+			}
+			#button:hover { background:#385f9e; }
+			#button2:hover { background:#385f9e; }
+			#button2{
+				height: 50px;
+				width: 80px;
+				background: #2f435e;
+				color: #f2f2f2;
+				margin-top: 2px;
+				border: none;
+				float: right;
+				
+			
+			}
+		

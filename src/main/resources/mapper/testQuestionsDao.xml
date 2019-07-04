@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 接口名 -->
+<mapper namespace="com.lxd.Graduation.dao.testQuestionsDao">
+<resultMap type="com.lxd.Graduation.entity.testQuestions" id="testMap">
+  <id property="iD"  column="id"/> <!-- property对应的是实体类，column 对应的是数据库的字段 -->
+  <result property="Type" column="type"/>
+  <result property="Title" column="title"/>
+  <result property="Answer" column="answer"/>
+  <result property="OptionA" column="option_A"/>
+  <result property="OptionB"  column="option_B"/>
+  <result property="OptionC"  column="option_C"/>
+  <result property="OptionD"  column="option_D"/>
+  <result property="Number"  column="number"/>
+  
+  </resultMap>
+  <select id="selectQuestionsByType" resultMap="testMap" parameterType="com.lxd.Graduation.entity.testQuestions">
+  SELECT
+	*
+FROM
+	test_questions
+
+	WHERE type=#{type}
+ORDER BY
+	rand( )
+	LIMIT 20
+  </select>
+
+
+    <select id="selectQuestions" resultMap="testMap" parameterType="com.lxd.Graduation.entity.testQuestions">
+  SELECT
+  distinct type
+
+FROM
+	test_questions
+
+  </select>
+
+
+
+
+  <insert id="insert" parameterType="com.lxd.Graduation.entity.testQuestions">
+  insert into test_questions
+                        (type,
+                         title,
+                         answer,
+                         option_A,
+                         option_B,
+                         option_C,
+                         option_D
+                         )
+                   values
+                       (#{Type},
+                        #{Title},
+                  	    #{Answer},
+                        #{OptionA},
+                        #{OptionB},
+                        #{OptionC},
+                        #{OptionD}
+                  	    )
+  </insert>
+  
+   <select id="selectCount"  resultType="java.lang.Integer" >
+  select count(*)from test_questions
+       <if test="type!=null">
+           where type like "%"#{type}"%" or title like "%"#{type}"%"
+       </if>
+  </select>
+  
+     <select id="selectPage"  resultMap="testMap" >
+  select *from test_questions
+  <where>
+      <if test="type!=null">
+          type like "%"#{type}"%" or title like "%"#{type}"%"
+      </if>
+  </where>
+         ORDER  BY type
+  limit #{startIndex},#{pageSize}
+  </select>
+  
+  <delete id="deleteQuestion">
+  DELETE FROM test_questions WHERE id =#{id}
+  </delete>
+
+    <update id="Change" parameterType="com.lxd.Graduation.entity.testQuestions">
+        UPDATE test_questions
+        <set>
+            <if test="Type!= null">type=#{Type},</if>
+            <if test="Title!= null">title=#{Title},</if>
+            <if test="OptionA!= null">option_A=#{OptionA},</if>
+            <if test="OptionB!= null">option_B=#{OptionB},</if>
+            <if test="OptionC!= null">option_C=#{OptionC},</if>
+            <if test="OptionD!= null">option_D=#{OptionD},</if>
+            <if test="Answer!= null">answer=#{Answer}</if>
+
+        </set>
+        WHERE id=#{iD}
+    </update>
+
+
+  
+</mapper>

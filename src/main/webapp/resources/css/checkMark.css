@@ -1,0 +1,119 @@
+
+
+#checkMsgBg{
+
+	background-color: #FFFFFF;
+	width: 1200px;
+
+	margin: 0 auto;
+}
+
+#checkError{
+	background-color: #ffffff;
+	width: 1150px;
+	height:500px;
+	margin: 0 auto;
+	position: relative;
+
+}
+
+#checkTitle{
+	height: 40px;
+	width: 200px;
+	float: left;
+}
+
+#checkTitle h3{
+	margin: 10px 10px;
+}
+
+#checkSearchBar{
+	height: 40px;
+	width: 370px;
+	float: right;
+	position: relative;
+	top: 10px;
+	right: 50px;
+}
+
+#checkSearch{
+	border: 2px solid ;
+	border-radius:20px ;
+	border-color:#DEDEDE;
+	width: 300px;
+	height: 35px;
+	font-size: 20px;
+
+}
+
+#checkTable{
+
+	width:1100px;
+	border-collapse: collapse;
+	font-size:15px;
+	color:#333333;
+	border-width: 1px;
+	margin: 0 auto;
+	clear:both;
+	position:relative;
+	top:30px;
+
+
+}
+#checkTable th {
+
+	padding: 8px;
+
+
+	border-bottom: 2px solid #f2f2f2;
+	color: #1E90FF;
+
+}
+
+#checkTable td {
+	border-width: 1px;
+	padding: 8px;
+	text-align: center;
+	border-bottom: 2px solid #f2f2f2;
+
+
+
+}
+
+
+#itemcheckMsg{
+	color: orange;
+	text-decoration: none;
+}
+
+#itemdelete{
+	color: red;
+	text-decoration: none;
+}
+
+#checkSearchBar i{
+	font-size: 35px;
+	color:#666666;
+	position: relative;
+	top: 10px;
+
+}
+
+a{
+	text-decoration: none;
+}
+
+
+
+
+
+
+.layui-input-block{
+	position: relative;
+	left: 400px;
+
+}
+
+
+
+

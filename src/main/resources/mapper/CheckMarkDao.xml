@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxd.Graduation.dao.CheckMarkDao">
+<resultMap type="com.lxd.Graduation.entity.Mark" id="markMap">
+      <id property="markId" column="mark_id"/>
+      <result property="markScore" column="mark_score"></result>
+      <result property="markSubjectType" column="mark_subject_type"></result>
+      <result property="markDate" column="mark_date"></result>
+      <result property="markSubjectTecher" column="mark_subject_techer"></result>
+      <result property="markStudentName" column="mark_student_name"></result>
+      <result property="markStudentNumber" column="mark_student_number"></result>
+      <result property="markSubjectNumber" column="mark_subject_number"></result>
+
+</resultMap>
+
+  <select id="selectMarkInfo" resultMap="markMap" parameterType="com.lxd.Graduation.entity.Mark">
+  		SELECT * FROM mark_table
+  		<where>
+  		<if test="type!=null ">
+           AND    mark_subject_type LIKE "%"#{type}"%"
+            <if test="userName==null and type!=null ">
+            or mark_student_name LIKE "%"#{type}"%"
+             or mark_student_number  LIKE "%"#{type}"%"
+            </if>
+
+        </if>
+        <if test="userName!=null">
+           AND   mark_student_number=#{userName}
+        </if>
+
+        </where>
+        ORDER BY mark_date DESC
+        limit #{startIndex},10
+
+
+</select>
+      <select id="selectCountByUserName" resultType="java.lang.Integer">
+            SELECT count(*)FROM mark_table
+
+            <where>
+                  <if test="userName!=null">
+                 and  mark_student_number=#{userName}
+                  </if>
+                  <if test="type!=null">
+                        and  mark_subject_type LIKE "%"#{type}"%"
+                  </if>
+                <if test="userName==null and type!=null ">
+                    or mark_student_name LIKE "%"#{type}"%"
+                    or mark_student_number  LIKE "%"#{type}"%"
+                </if>
+            </where>
+
+
+
+      </select>
+
+<update id="updataMark" >
+
+      UPDATE mark_table
+            <set>
+            <if test="mark!= null">mark_score=#{mark}</if>
+            </set>
+            <where>
+                  mark_student_number=#{number}
+                  AND
+                  mark_subject_type=#{type}
+            </where>
+</update>
+
+      <delete id="delete">
+             DELETE FROM mark_table WHERE mark_id =#{markId}
+      </delete>
+
+    <insert id="insert" parameterType="com.lxd.Graduation.entity.Mark">
+         insert into mark_table
+                        (mark_score,
+                        mark_subject_type,
+                        mark_date,
+                        mark_student_name,
+                        mark_student_number
+                         )
+                   values
+                       (#{markScore},
+                       #{markSubjectType},
+                       #{markDate},
+                       #{markStudentName},
+                       #{markStudentNumber}
+                  	    )
+    </insert>
+
+
+    <!-->
+    查看学生是否已经考过试
+<-->
+    <select id="selectOne" resultType="java.lang.Integer">
+        SELECT count(*)FROM mark_table
+
+        <where>
+
+            and  mark_student_number =#{userName}
+            and  mark_subject_type=#{type}
+
+        </where>
+
+    </select>
+
+</mapper>
